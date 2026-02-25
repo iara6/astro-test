@@ -1,5 +1,13 @@
 ---
 import "../css/custom.css"
+import Header from "../components/header.astro"
+
+interface Props {
+  title: string;
+} /* TypeScript */
+
+const { title } = Astro.props;
+/* const title = Astro.props.title; */
 ---
 <!doctype html>
 <html lang="en">
@@ -9,11 +17,12 @@ import "../css/custom.css"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title} | A Really Nice Title</title>
 	</head>
 	<body>
+    <Header />
     <p>This appears on all pages that use this layout.</p>
-		<slot />
+		<slot /> <!-- index.astro -->
 	</body>
 </html>
 
